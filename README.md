@@ -1,110 +1,123 @@
-# Employee Management System (CRUD) – Streamlit & PostgreSQL
+# 📘 Employee Management System (CRUD)
+## Streamlit • FastAPI • PostgreSQL • Docker
 
 <img width="1536" height="1024" alt="crud diagram" src="https://github.com/user-attachments/assets/a7d9c23b-88f5-49a1-86f2-b6d1b140e468" />
 
-A full-stack CRUD (Create, Read, Update, Delete) web application for managing employee records, built using **Python**, **Streamlit**, and **PostgreSQL**.  
-This project demonstrates database integration, backend logic, and interactive UI development.
+---
+
+## 📌 Overview
+This project is a full-stack CRUD (Create, Read, Update, Delete) employee management system built with Python, Streamlit, FastAPI, and PostgreSQL.
+It demonstrates real-world backend API design, database integration, and containerized infrastructure using Docker.
+
+---
+
+## 🧱 Architecture & Flow
+User
+ └── Streamlit (Frontend UI)
+        └── FastAPI (REST Backend)
+               └── PostgreSQL (Dockerized Database)
+
+<img width="1536" height="1024" alt="crud flow pic" src="https://github.com/user-attachments/assets/3748a60b-9c01-4279-ad55-b4d329484ae4" />
 
 ---
 
 ## 🚀 Features
-
-- Add new employees
-- View all employees in a dynamic table
-- Update existing employee information
-- Delete employee records
-- Persistent data storage using PostgreSQL
-- Clean and interactive UI with Streamlit
+Add, view, update, and delete employee records
+RESTful API built with FastAPI
+Interactive frontend built with Streamlit
+PostgreSQL database running in Docker
+SQLAlchemy ORM for database modeling
+Environment-based configuration
+Swagger UI for API testing
 
 ---
 
 ## 🛠️ Tech Stack
-
-- **Frontend:** Streamlit
-- **Backend:** Python
-- **Database:** PostgreSQL
-- **Database Driver:** psycopg2
-- **Data Handling:** pandas
-
----
-
-## 🏗️ Architecture Overview
-
-User (Web Browswer)  ->
-StreamLit App (Python)  ->
-PostgreSQL (Database)
-
-- The Streamlit app handles UI and user interaction
-- SQL queries are executed using `psycopg2`
-- PostgreSQL stores employee data persistently
+Layer	            Technology
+Frontend	        Streamlit
+Backend	            FastAPI
+ORM	                SQLAlchemy
+Database	        PostgreSQL
+Containerization	Docker
+API Docs	        Swagger UI
+Language	        Python
 
 ---
 
 ## 📂 Project Structure
-
-├── app.py # Main Streamlit application
-├── db.py # Database connection logic
-├── requirements.txt # Python dependencies
+streamlit_postgres_crud/
+├── app.py                 # Streamlit frontend
+├── db.py                  # Streamlit DB connector
+├── fastapi_crud/          # FastAPI backend
+│   ├── main.py
+│   ├── database.py
+│   ├── models.py
+│   ├── schemas.py
+│   └── crud.py
+├── docker-compose.yml     # PostgreSQL Docker setup
+├── requirements.txt
+├── .env                   # Environment variables (not committed)
 └── README.md
 
 ---
 
 ## 🗄️ Database Schema
-
 ```sql
 CREATE TABLE employee (
-    emp_id SERIAL PRIMARY KEY,
-    emp_name VARCHAR(100),
-    email VARCHAR(100),
-    department VARCHAR(50),
-    salary NUMERIC,
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    role VARCHAR(50),
+    salary NUMERIC(10,2),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+```
+---
+
+## ⚙️ Setup Instructions
+#### 1️⃣ Clone Repository
+`git clone https://github.com/abrahamj101/employee-crud-streamlit-postgres`
+`cd streamlit_postgres_crud`
+
+#### 2️⃣ Create Virtual Environment
+`python -m venv venv`
+`venv\Scripts\activate`
+
+#### 3️⃣ Install Dependencies
+`pip install -r requirements.txt`
+
+#### 4️⃣ Start PostgreSQL (Docker)
+`docker compose up -d`
+
+#### 5️⃣ Run FastAPI Backend
+`uvicorn fastapi_crud.main:app --reload`
+
+#### Access API docs:
+`http://127.0.0.1:8000/docs`
+
+#### 6️⃣ Run Streamlit Frontend
+`streamlit run app.py`
 
 ---
 
-⚙️ Setup & Installation
-1️⃣ Clone the Repository
-git clone https://github.com/your-username/employee-crud-streamlit-postgres.git
-cd employee-crud-streamlit-postgres
+## 📈 What This Project Demonstrates
+REST API development with FastAPI
+Database modeling with SQLAlchemy ORM
+Docker-based database setup
+Frontend/backend separation
+Environment variable configuration
+Real-world CRUD workflows
 
-2️⃣ Create a Virtual Environment (Optional but Recommended)
-python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
+---
 
-3️⃣ Install Dependencies
-pip install -r requirements.txt
-
-4️⃣ Configure PostgreSQL
-Ensure PostgreSQL is running
-Create a database named employee_db
-Create the employee table using the schema above
-
-⚠️ Security Note:
-Database credentials should be stored in environment variables instead of hardcoded values for production use.
-
-5️⃣ Run the Application
-streamlit run app.py
-
-🧪 Example Use Cases
-HR employee tracking
-Learning full-stack Python development
-CRUD application demonstration for resumes
-PostgreSQL + Python integration practice
-
-📈 What This Project Demonstrates
-Full CRUD operations with SQL
-Backend–database integration
-State management in Streamlit
-Clean project organization
-Real-world data workflows
-
-🔮 Future Improvements
-Authentication & user roles
-Input validation
+## 🔮 Future Improvements
+Connect Streamlit frontend to FastAPI API
+Authentication and authorization
 Pagination & search
-Dockerization
-Deployment to cloud (AWS / GCP / Streamlit Cloud)
+Dockerize FastAPI
+Cloud deployment (AWS/GCP)
 
-📄 License
-This project is open-source and available for learning and portfolio use.
+---
+
+## 📄 License
+Open-source, educational project.
