@@ -99,8 +99,14 @@ CREATE TABLE employee (
 #### Access API docs:
 `http://127.0.0.1:8000/docs`
 
+<img width="1673" height="974" alt="image" src="https://github.com/user-attachments/assets/ee2f3f81-d2b9-47de-be67-ca656649eb66" />
+
+
 #### 6️⃣ Run Streamlit Frontend
 `streamlit run app.py`
+
+<img width="783" height="1545" alt="image" src="https://github.com/user-attachments/assets/72adddd6-41ef-4cc5-858b-a543236ebe6e" />
+
 
 ---
 
