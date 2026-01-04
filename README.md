@@ -76,6 +76,9 @@ CREATE TABLE employee (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
+
+<img width="1742" height="656" alt="image" src="https://github.com/user-attachments/assets/b0c8d609-6705-466a-99cd-e1c96cfc4b4d" />
+
 ---
 
 ## ⚙️ Setup Instructions
