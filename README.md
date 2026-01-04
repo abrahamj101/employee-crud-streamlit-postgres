@@ -107,6 +107,12 @@ CREATE TABLE employee (
 
 <img width="783" height="1545" alt="image" src="https://github.com/user-attachments/assets/72adddd6-41ef-4cc5-858b-a543236ebe6e" />
 
+#### Run Both Simultaneously
+```
+# This opens two windows: one for FastAPI, one for Streamlit
+start powershell -NoExit -Command ".\venv\Scripts\Activate; uvicorn fastapi_crud.main:app --reload"
+start powershell -NoExit -Command ".\venv\Scripts\Activate; streamlit run app.py"
+```
 
 ---
 
