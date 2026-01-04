@@ -12,10 +12,12 @@ It demonstrates real-world backend API design, database integration, and contain
 ---
 
 ## 🧱 Architecture & Flow
+```
 User
  └── Streamlit (Frontend UI)
         └── FastAPI (REST Backend)
                └── PostgreSQL (Dockerized Database)
+```
 
 <img width="1536" height="1024" alt="crud flow pic" src="https://github.com/user-attachments/assets/3748a60b-9c01-4279-ad55-b4d329484ae4" />
 
@@ -45,6 +47,7 @@ Language	        Python
 ---
 
 ## 📂 Project Structure
+```
 streamlit_postgres_crud/
 ├── app.py                 # Streamlit frontend
 ├── db.py                  # Streamlit DB connector
@@ -58,6 +61,7 @@ streamlit_postgres_crud/
 ├── requirements.txt
 ├── .env                   # Environment variables (not committed)
 └── README.md
+```
 
 ---
 
